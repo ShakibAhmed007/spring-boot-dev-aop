@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class SpringAopApplication implements CommandLineRunner {
 
 	@Autowired
@@ -22,6 +24,8 @@ public class SpringAopApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		productService.getAllProducts();
+		productService.getProductById();
+		productService.calculateAmount();
 		userService.getAllUser();
 	}
 }
